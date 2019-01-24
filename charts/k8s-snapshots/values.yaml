@@ -1,0 +1,4 @@
+image:
+  repository: us.gcr.io/atlas-dev-2001/k8s-snapshots
+  tag: latest
+  pullPolicy: IfNotPresent
