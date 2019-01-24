@@ -20,5 +20,4 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: USE_CLAIM_NAME
-              value: "true"
+{{ toYaml .Values.envVars | indent 12 }}

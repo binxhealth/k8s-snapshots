@@ -2,3 +2,12 @@ image:
   repository: us.gcr.io/atlas-dev-2001/k8s-snapshots
   tag: latest
   pullPolicy: IfNotPresent
+
+envVars:
+  - name: USE_CLAIM_NAME
+    value: "true"
+  - name: GCLOUD_JSON_KEYFILE_STRING
+    valueFrom:
+      secretKeyRef:
+        name: k8s-snapshot-service-account
+        key: key.json
