@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "app.fullname" . }}
+  name: {{ template "app.fullname" . }
   labels:
     app: {{ template "app.name" . }}
     chart: {{ template "app.chart" . }}
@@ -9,6 +9,9 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "app.name" . }}
   template:
     metadata:
       labels:
