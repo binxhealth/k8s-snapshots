@@ -26,13 +26,16 @@ Let's run *k8s-snapshots* in your cluster:
 
 ```bash
 cat <<EOF | kubectl create -f -
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-snapshots
   namespace: kube-system
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "app.name" . }}
   template:
     metadata:
       labels:
